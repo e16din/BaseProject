@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="base_developing_stub">В разработке!</string>
+    <string name="base_loading">Загрузка…</string>
+
+    <string name="base_navigation_drawer_open">Open navigation drawer</string>
+    <string name="base_navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="base_no_internet_connection">Не удается установить соединение. Проверьте подключение к интернету и попробуйте снова.</string>
+
+</resources>
