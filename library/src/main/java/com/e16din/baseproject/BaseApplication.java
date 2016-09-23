@@ -1,5 +1,6 @@
 package com.e16din.baseproject;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
@@ -18,8 +19,12 @@ public abstract class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
-        LightUtils.init(this, BuildConfig.DEBUG);
-        DataManager.init(this);
+        init(this);
+    }
+
+    public static void init(Context context) {
+        LightUtils.init(context, BuildConfig.DEBUG);
+        DataManager.init(context);
         IntentMaster.setNeedIgnoreExceptions(true);
     }
 
