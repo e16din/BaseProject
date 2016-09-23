@@ -26,10 +26,13 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.ext.SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:support-v4:$rootProject.ext.SUPPORT_LIBRARY_VERSION"
 
-    compile 'com.github.e16din:DataManager:0.1.1@aar'
-    compile 'com.github.e16din:IntentMaster:0.3.0.1@aar'
-
-    compile('com.github.e16din:LightUtils:1.5.0@aar') {
+    compile('com.github.e16din:LightUtils:1.5.2@aar') {
+        transitive = true;
+    }
+    compile('com.github.e16din:DataManager:0.1.3@aar') {
+        transitive = true;
+    }
+    compile('com.github.e16din:IntentMaster:0.3.2@aar') {
         transitive = true;
     }
     compile('com.github.e16din:AlertManager:1.2.0@aar') {
