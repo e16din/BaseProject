@@ -17,9 +17,9 @@ import com.e16din.lightutils.utils.ViewUtils;
 
 import java.io.Serializable;
 
-public abstract class Logic<MODEL> extends OnCallListenerLogic<MODEL> implements Serializable {
+public abstract class BaseProjectLogic<MODEL> extends OnCallListenerLogic<MODEL> implements Serializable {
 
-    public Logic(BaseProjectActivity activity, Bundle savedInstanceState) {
+    public BaseProjectLogic(BaseProjectActivity activity, Bundle savedInstanceState) {
         super(activity, savedInstanceState);
     }
 

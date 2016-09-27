@@ -1,13 +1,13 @@
 package com.e16din.baseproject;
 
-import com.e16din.baseproject.pattern.logic.Logic;
+import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
 import com.e16din.requestmanager.Result;
 import com.e16din.requestmanager.retrofit.RetrofitCallback;
 
 
 public abstract class BaseProjectOnCallListener<T extends Result> extends RetrofitCallback<T> {
 
-    public abstract Logic logic();
+    public abstract BaseProjectLogic logic();
 
     @Override
     public void onSuccess(T result, int statusCode) {

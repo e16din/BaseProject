@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 
 import com.e16din.alertmanager.AlertManager;
-import com.e16din.baseproject.pattern.logic.Logic;
+import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
 import com.e16din.datamanager.DataManager;
 import com.e16din.intentmaster.IntentMaster;
 import com.e16din.lightutils.LightUtils;
@@ -36,7 +36,7 @@ public abstract class BaseProjectApplication extends MultiDexApplication {
                 + "Android(" + U.getAndroidVersionNumbers() + ")";
     }
 
-    public static void onRequest(@Nullable final Logic logic, final boolean withProgress) {
+    public static void onRequest(@Nullable final BaseProjectLogic logic, final boolean withProgress) {
         if (logic == null) return;
 
         if (withProgress) {

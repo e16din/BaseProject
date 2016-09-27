@@ -15,7 +15,7 @@ import android.view.View;
 import com.e16din.baseproject.pattern.DataContainer;
 import com.e16din.baseproject.pattern.LogicContainer;
 import com.e16din.baseproject.pattern.ViewInterface;
-import com.e16din.baseproject.pattern.logic.Logic;
+import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
 import com.e16din.datamanager.DataManager;
 
 public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
@@ -28,7 +28,7 @@ public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
 
     private static final String TAG = BaseProjectActivity.class.getSimpleName();
 
-    private Logic<MODEL> mLogic;
+    private BaseProjectLogic<MODEL> mLogic;
 
 
     @Override
@@ -73,7 +73,7 @@ public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
     }
 
     @Override
-    public void onLogicCreated(Logic logic) {
+    public void onLogicCreated(BaseProjectLogic logic) {
     }
 
     @Override
@@ -87,10 +87,10 @@ public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
 
     @NonNull
     @Override
-    public abstract Logic<MODEL> onCreateLogic(Bundle savedInstanceState);
+    public abstract BaseProjectLogic<MODEL> onCreateLogic(Bundle savedInstanceState);
 
     @Override
-    public Logic<MODEL> logic() {
+    public BaseProjectLogic<MODEL> logic() {
         return mLogic;
     }
 
