@@ -18,7 +18,7 @@ import com.e16din.baseproject.pattern.ViewInterface;
 import com.e16din.baseproject.pattern.logic.Logic;
 import com.e16din.datamanager.DataManager;
 
-public abstract class BaseActivity<MODEL> extends AppCompatActivity
+public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
         implements ViewInterface<MODEL>, LogicContainer<MODEL>, DataContainer<MODEL> {
 
     public static final String KEY_WAS_LAUNCHED = "wasLaunched";
@@ -26,7 +26,7 @@ public abstract class BaseActivity<MODEL> extends AppCompatActivity
 
     public static final String KEY_APP_IS_RUNNING = "AppIsRunning";
 
-    private static final String TAG = BaseActivity.class.getSimpleName();
+    private static final String TAG = BaseProjectActivity.class.getSimpleName();
 
     private Logic<MODEL> mLogic;
 

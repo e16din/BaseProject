@@ -13,7 +13,7 @@ import com.e16din.lightutils.LightUtils;
 import com.e16din.lightutils.utils.U;
 
 
-public abstract class BaseApplication extends MultiDexApplication {
+public abstract class BaseProjectApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {

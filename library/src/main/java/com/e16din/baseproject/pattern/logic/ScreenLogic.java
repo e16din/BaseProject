@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.e16din.baseproject.R;
-import com.e16din.baseproject.screens.BaseActivity;
+import com.e16din.baseproject.screens.BaseProjectActivity;
 import com.e16din.lightutils.utils.U;
 
 import java.io.Serializable;
@@ -29,7 +29,7 @@ public class ScreenLogic<MODEL> extends DataLogic<MODEL> implements Serializable
 
     private boolean mCanceled;
 
-    private transient BaseActivity mActivity;
+    private transient BaseProjectActivity mActivity;
 
     private transient MaterialDialog mLoadingDialog;
 
@@ -39,21 +39,21 @@ public class ScreenLogic<MODEL> extends DataLogic<MODEL> implements Serializable
 
     ///
 
-    public ScreenLogic(BaseActivity activity, Bundle savedInstanceState) {
+    public ScreenLogic(BaseProjectActivity activity, Bundle savedInstanceState) {
         mActivity = activity;
         mSavedInstanceStateBundle = savedInstanceState;
     }
 
-    public void onActivityResult(BaseActivity activity) {
+    public void onActivityResult(BaseProjectActivity activity) {
         start(activity);
     }
 
-    protected void start(BaseActivity activity) {
+    protected void start(BaseProjectActivity activity) {
         mActivity = activity;
         setCanceled(false);
     }
 
-    public void onStart(BaseActivity activity) {
+    public void onStart(BaseProjectActivity activity) {
         start(activity);
     }
 
@@ -64,7 +64,7 @@ public class ScreenLogic<MODEL> extends DataLogic<MODEL> implements Serializable
 
     /// get
 
-    public BaseActivity getActivity() {
+    public BaseProjectActivity getActivity() {
         return mActivity;
     }
 

@@ -5,7 +5,7 @@ import com.e16din.requestmanager.Result;
 import com.e16din.requestmanager.retrofit.RetrofitCallback;
 
 
-public abstract class BaseOnCallListener<T extends Result> extends RetrofitCallback<T> {
+public abstract class BaseProjectOnCallListener<T extends Result> extends RetrofitCallback<T> {
 
     public abstract Logic logic();
 

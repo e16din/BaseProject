@@ -18,7 +18,7 @@ import com.e16din.baseproject.pattern.logic.Logic;
 /**
  * Created by e16din on 08.12.15.
  */
-public abstract class BaseFragment<MODEL> extends Fragment
+public abstract class BaseProjectFragment<MODEL> extends Fragment
         implements ViewInterface<MODEL>, LogicContainer<MODEL>, DataContainer<MODEL> {
 
     private Logic<MODEL> mLogic;
@@ -109,8 +109,8 @@ public abstract class BaseFragment<MODEL> extends Fragment
         super.onSaveInstanceState(outState);
     }
 
-    protected BaseActivity getBaseActivity() {
-        return (BaseActivity) getActivity();
+    protected BaseProjectActivity getBaseActivity() {
+        return (BaseProjectActivity) getActivity();
     }
 
     //- other

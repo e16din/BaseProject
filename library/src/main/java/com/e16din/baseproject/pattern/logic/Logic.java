@@ -11,7 +11,7 @@ import com.e16din.alertmanager.AlertManager;
 import com.e16din.baseproject.R;
 import com.e16din.baseproject.pattern.DataContainer;
 import com.e16din.baseproject.pattern.ViewInterface;
-import com.e16din.baseproject.screens.BaseActivity;
+import com.e16din.baseproject.screens.BaseProjectActivity;
 import com.e16din.lightutils.utils.U;
 import com.e16din.lightutils.utils.ViewUtils;
 
@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 public abstract class Logic<MODEL> extends OnCallListenerLogic<MODEL> implements Serializable {
 
-    public Logic(BaseActivity activity, Bundle savedInstanceState) {
+    public Logic(BaseProjectActivity activity, Bundle savedInstanceState) {
         super(activity, savedInstanceState);
     }
 
