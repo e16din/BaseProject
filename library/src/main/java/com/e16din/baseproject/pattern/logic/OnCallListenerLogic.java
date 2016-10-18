@@ -7,13 +7,11 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.e16din.alertmanager.AlertManager;
-import com.e16din.baseproject.screens.BaseProjectActivity;
+import com.e16din.baseproject.screens.activity.BaseProjectActivity;
 import com.e16din.requestmanager.ListResult;
 import com.e16din.requestmanager.Result;
 
-import java.io.Serializable;
-
-public abstract class OnCallListenerLogic<MODEL> extends ScreenLogic<MODEL> implements Serializable {
+public abstract class OnCallListenerLogic<MODEL> extends ScreenLogic<MODEL> {
 
     public OnCallListenerLogic(BaseProjectActivity activity, Bundle savedInstanceState) {
         super(activity, savedInstanceState);

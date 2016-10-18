@@ -13,7 +13,7 @@ public interface ViewInterface<MODEL> {
     int getLayoutId();
 
     /**
-     * The view created, start your views here.
+     * The view created, init your views here.
      */
     void onInit(View v);
 
@@ -21,4 +21,5 @@ public interface ViewInterface<MODEL> {
      * Bind the data to views.
      */
     void onBind(MODEL data);
+
 }

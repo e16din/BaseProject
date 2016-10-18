@@ -22,21 +22,23 @@ public abstract class BaseProjectApplication extends MultiDexApplication {
         init(this);
     }
 
-    public static void init(Context context) {
-        LightUtils.init(context, BuildConfig.DEBUG);
+    public abstract boolean isDebug();
+
+    public void init(Context context) {
+        LightUtils.init(context, isDebug());
         DataManager.init(context);
         IntentMaster.setNeedIgnoreExceptions(true);
     }
 
     @NonNull
-    public static String getUserAgent(String agent) {
+    public String getUserAgent(String agent) {
         return agent + " "
                 + BuildConfig.VERSION_NAME + " "
                 + U.getDeviceName() + " "
                 + "Android(" + U.getAndroidVersionNumbers() + ")";
     }
 
-    public static void onRequest(@Nullable final BaseProjectLogic logic, final boolean withProgress) {
+    public void onRequest(@Nullable final BaseProjectLogic logic, final boolean withProgress) {
         if (logic == null) return;
 
         if (withProgress) {

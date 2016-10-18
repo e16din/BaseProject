@@ -1,9 +1,6 @@
 package com.e16din.baseproject.pattern.logic;
 
-import java.io.Serializable;
+import com.e16din.baseproject.BaseProjectConstants;
 
-public class BaseLogic implements Serializable {
-
-    String KEY_DATA = "bp_data";
-
+public abstract class BaseLogic implements BaseProjectConstants {
 }

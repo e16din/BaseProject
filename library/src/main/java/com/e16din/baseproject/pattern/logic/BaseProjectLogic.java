@@ -7,24 +7,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.e16din.alertmanager.AlertManager;
+import com.e16din.alertmanager.Show;
 import com.e16din.baseproject.R;
 import com.e16din.baseproject.pattern.DataContainer;
 import com.e16din.baseproject.pattern.ViewInterface;
-import com.e16din.baseproject.screens.BaseProjectActivity;
+import com.e16din.baseproject.screens.activity.BaseProjectActivity;
 import com.e16din.lightutils.utils.U;
 import com.e16din.lightutils.utils.ViewUtils;
 
 import java.io.Serializable;
 
-public abstract class BaseProjectLogic<MODEL> extends OnCallListenerLogic<MODEL> implements Serializable {
+public abstract class BaseProjectLogic<MODEL> extends OnCallListenerLogic<MODEL> {
 
     public BaseProjectLogic(BaseProjectActivity activity, Bundle savedInstanceState) {
         super(activity, savedInstanceState);
     }
 
     public void developingStub() {
-        AlertManager.manager(getActivity()).showAlert(U.getString(R.string.base_developing_stub));
+        Show.message(getActivity(), R.string.base_developing_stub).dialog();
     }
 
     public <T extends DataContainer<MODEL> & ViewInterface<MODEL>> void bind(T owner) {

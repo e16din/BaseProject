@@ -1,9 +1,9 @@
-package com.e16din.baseproject.screens;
+package com.e16din.baseproject.screens.dialog;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +13,10 @@ import com.e16din.baseproject.pattern.DataContainer;
 import com.e16din.baseproject.pattern.LogicContainer;
 import com.e16din.baseproject.pattern.ViewInterface;
 import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
+import com.e16din.baseproject.screens.activity.BaseProjectActivity;
 
 
-/**
- * Created by e16din on 08.12.15.
- */
-public abstract class BaseProjectFragment<MODEL> extends Fragment
+public abstract class BaseProjectDialogFragment<MODEL> extends DialogFragment
         implements ViewInterface<MODEL>, LogicContainer<MODEL>, DataContainer<MODEL> {
 
     private BaseProjectLogic<MODEL> mLogic;
@@ -111,20 +109,5 @@ public abstract class BaseProjectFragment<MODEL> extends Fragment
 
     protected BaseProjectActivity getBaseActivity() {
         return (BaseProjectActivity) getActivity();
-    }
-
-    //- other
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-
-        if (getActivity() != null && isVisibleToUser) {
-            onSelected();
-        }
-    }
-
-    public void onSelected() {
-        //override for view pagers
     }
 }

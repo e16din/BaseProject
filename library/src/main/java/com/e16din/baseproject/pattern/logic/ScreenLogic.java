@@ -4,16 +4,20 @@ package com.e16din.baseproject.pattern.logic;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.e16din.baseproject.R;
-import com.e16din.baseproject.screens.BaseProjectActivity;
+import com.e16din.baseproject.screens.activity.BaseProjectActivity;
 import com.e16din.lightutils.utils.U;
 
 import java.io.Serializable;
@@ -21,50 +25,76 @@ import java.io.Serializable;
 /**
  * Contains common logic for all screens (activities and fragments)
  */
-public class ScreenLogic<MODEL> extends DataLogic<MODEL> implements Serializable {
+public class ScreenLogic<MODEL> extends DataLogic<MODEL> {
 
     public static final int PROGRESS_HIDE_COUNT = 3;
 
+    
     private Toolbar vToolbar;
 
     private boolean mCanceled;
 
-    private transient BaseProjectActivity mActivity;
+    private BaseProjectActivity<MODEL> mActivity;
 
-    private transient MaterialDialog mLoadingDialog;
+    private MaterialDialog mLoadingDialog;
 
-    private transient int mOnBackPressedCounter = 0;
+    private int mOnBackPressedCounter = 0;
 
-    private transient Bundle mSavedInstanceStateBundle;
+    private Bundle mSavedInstanceStateBundle;
 
     ///
 
-    public ScreenLogic(BaseProjectActivity activity, Bundle savedInstanceState) {
+    public ScreenLogic(BaseProjectActivity<MODEL> activity, Bundle savedInstanceState) {
         mActivity = activity;
         mSavedInstanceStateBundle = savedInstanceState;
     }
 
-    public void onActivityResult(BaseProjectActivity activity) {
+    public void onActivityResult(BaseProjectActivity<MODEL> activity) {
         start(activity);
     }
 
-    protected void start(BaseProjectActivity activity) {
+    protected void start(BaseProjectActivity<MODEL> activity) {
         mActivity = activity;
         setCanceled(false);
     }
 
-    public void onStart(BaseProjectActivity activity) {
+    public void onStart(BaseProjectActivity<MODEL> activity) {
         start(activity);
     }
 
     public void onStop() {
+        saveDataOnStop();
+
         mActivity = null;
         setCanceled(true);
     }
 
+    protected void saveDataOnStop() {
+        MODEL data = getData(getActivity());
+        if (data instanceof Serializable) {
+            saveData(getActivity(), (Serializable) data);
+        } else {
+            //todo: save parcelable
+        }
+    }
+
+    /// inflate
+
+    public View inflate(@LayoutRes int layoutId, @Nullable ViewGroup vParent) {
+        return getActivity().getLayoutInflater().inflate(layoutId, vParent);
+    }
+
+    public View inflate(@LayoutRes int layoutId, @Nullable ViewGroup vParent, boolean attachToRoot) {
+        return getActivity().getLayoutInflater().inflate(layoutId, vParent, attachToRoot);
+    }
+
+    public void inflate(int menuRes, Menu menu) {
+        getActivity().getMenuInflater().inflate(menuRes, menu);
+    }
+
     /// get
 
-    public BaseProjectActivity getActivity() {
+    public BaseProjectActivity<MODEL> getActivity() {
         return mActivity;
     }
 
