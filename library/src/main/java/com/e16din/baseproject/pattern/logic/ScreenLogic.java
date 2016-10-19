@@ -29,7 +29,7 @@ public class ScreenLogic<MODEL> extends DataLogic<MODEL> {
 
     public static final int PROGRESS_HIDE_COUNT = 3;
 
-    
+
     private Toolbar vToolbar;
 
     private boolean mCanceled;
