@@ -128,4 +128,10 @@ public abstract class BaseProjectFragment<MODEL> extends Fragment
     public void onSelected() {
         //override for view pagers
     }
+
+    protected void replaceFragment(int containerId, Fragment fragment) {
+        if (fragment != null) {
+            getChildFragmentManager().beginTransaction().replace(containerId, fragment).commit();
+        }
+    }
 }
