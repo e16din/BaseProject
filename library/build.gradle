@@ -6,12 +6,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 25
         multiDexEnabled true
     }
     buildTypes {
@@ -24,7 +24,7 @@ android {
 
 dependencies {
 
-    final SUPPORT_LIBRARY_VERSION = '24.2.1'
+    final SUPPORT_LIBRARY_VERSION = '25.0.1'
 
     compile 'com.android.support:multidex:1.0.1@aar'
 
