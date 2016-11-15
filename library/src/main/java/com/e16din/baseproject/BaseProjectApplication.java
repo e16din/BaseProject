@@ -7,9 +7,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.e16din.alertmanager.AlertManager;
 import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
-import com.e16din.datamanager.DataManager;
-import com.e16din.intentmaster.IntentMaster;
-import com.e16din.lightutils.LightUtils;
 import com.e16din.lightutils.utils.U;
 
 
@@ -25,13 +22,7 @@ public abstract class BaseProjectApplication extends MultiDexApplication {
     public abstract boolean isDebug();
 
     public void init(Context context) {
-        BaseProjectApplication.init(context, isDebug());
-    }
-
-    public static void init(Context context, boolean isDebug) {
-        LightUtils.init(context, isDebug);
-        DataManager.init(context);
-        IntentMaster.setNeedIgnoreExceptions(true);
+        BaseProject.init(context, isDebug());
     }
 
     @NonNull
