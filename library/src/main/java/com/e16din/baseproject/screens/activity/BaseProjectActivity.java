@@ -161,14 +161,14 @@ public abstract class BaseProjectActivity<MODEL> extends AppCompatActivity
     protected void onStop() {
         mLogic.onStop();
         logic().hideProgress();
-        DataManager.getInstance().save(KEY_APP_IS_RUNNING, false);
+        DataManager.save(KEY_APP_IS_RUNNING, false);
         super.onStop();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        DataManager.getInstance().save(KEY_APP_IS_RUNNING, true);
+        DataManager.save(KEY_APP_IS_RUNNING, true);
         mLogic.onStart(this);
     }
 

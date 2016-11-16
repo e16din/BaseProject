@@ -16,7 +16,7 @@ import java.util.List;
 public class DataLogic<MODEL> extends BaseLogic {
 
     public void saveData(DataContainer owner, Serializable data) {
-        DataManager.getInstance().save(owner.getClass().getSimpleName() + "_data", data);
+        DataManager.save(owner.getClass().getSimpleName() + "_data", data);
     }
 
     @Nullable
@@ -44,7 +44,7 @@ public class DataLogic<MODEL> extends BaseLogic {
         Type genericSuperclass = typedList.getClass().getGenericSuperclass();
         Type modelType = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0];
 
-        MODEL savedData = DataManager.getInstance().load(d.getClass().getSimpleName() + "_data", modelType);
+        MODEL savedData = DataManager.load(d.getClass().getSimpleName() + "_data", modelType);
         return savedData == null ? null : savedData;
     }
 

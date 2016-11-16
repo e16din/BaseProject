@@ -2,11 +2,8 @@ package com.e16din.baseproject;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 
-import com.e16din.alertmanager.AlertManager;
-import com.e16din.baseproject.pattern.logic.BaseProjectLogic;
 import com.e16din.lightutils.utils.U;
 
 
@@ -38,18 +35,19 @@ public abstract class BaseProjectApplication extends MultiDexApplication {
                 + "Android(" + U.getAndroidVersionNumbers() + ")";
     }
 
-    public void onRequest(@Nullable final BaseProjectLogic logic, final boolean withProgress) {
-        if (logic == null) return;
-
-        if (withProgress) {
-            logic.showProgress();
-        }
-
-        if (!U.isOnline()) {
-            logic.hideProgress();
-
-            AlertManager.manager(logic.getActivity())
-                    .showErrorAlert(U.getString(R.string.base_no_internet_connection));
-        }
-    }
+//todo: move to independent module
+//    public void onRequest(@Nullable final BaseProjectLogic logic, final boolean withProgress) {
+//        if (logic == null) return;
+//
+//        if (withProgress) {
+//            logic.showProgress();
+//        }
+//
+//        if (!U.isOnline()) {
+//            logic.hideProgress();
+//
+//            AlertManager.manager(logic.getActivity())
+//                    .showErrorAlert(U.getString(R.string.base_no_internet_connection));
+//        }
+//    }
 }

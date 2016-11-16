@@ -4,12 +4,9 @@ package com.e16din.baseproject.pattern.logic;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.e16din.alertmanager.AlertManager;
 import com.e16din.baseproject.screens.activity.BaseProjectActivity;
-import com.e16din.requestmanager.ListResult;
-import com.e16din.requestmanager.Result;
 
 public abstract class OnCallListenerLogic<MODEL> extends ScreenLogic<MODEL> {
 
@@ -25,15 +22,16 @@ public abstract class OnCallListenerLogic<MODEL> extends ScreenLogic<MODEL> {
         hideProgress();
     }
 
-    public <T extends Result> void onSuccess(T result, int statusCode) {
-        if (result instanceof ListResult) {
-            Log.i("RequestM_Size", "Size: " + ((ListResult) result).size());
-        }
-    }
-
-    public abstract void onErrorFromServer(Result result);
-
-    public abstract void onHttpError(int code, String message, String body, final Runnable onErrorOkListener);
+    //todo: move to independent module
+//    public <T extends Result> void onSuccess(T result, int statusCode) {
+//        if (result instanceof ListResult) {
+//            Log.i("RequestM_Size", "Size: " + ((ListResult) result).size());
+//        }
+//    }
+//
+//    public abstract void onErrorFromServer(Result result);
+//
+//    public abstract void onHttpError(int code, String message, String body, final Runnable onErrorOkListener);
 
     public void showErrorDialog(String error, @Nullable final Runnable onErrorOkListener) {
         AlertManager.manager(getActivity()).showAlert(error,
